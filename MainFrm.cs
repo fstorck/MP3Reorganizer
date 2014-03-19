@@ -91,7 +91,10 @@ namespace MP3TagRename
             }
             catch (System.Exception ex)
             {
-            	
+                AsyncUI.Call(LBL_Info, delegate
+                {
+                    LBL_Info.Text = ex.Message;
+                });
             }
             finally
             {
