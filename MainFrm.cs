@@ -18,6 +18,8 @@ namespace MP3TagRename
     {
         bool _bAbort = false;
 
+        int   _EqualFiles     = 0;
+        long  _BytesProcessed = 0;
         public MainFrm()
         {
             InitializeComponent();
@@ -26,6 +28,8 @@ namespace MP3TagRename
         private void BTN_StartProcessing_Click(object sender, EventArgs e)
         {
             _bAbort         = false;
+            _EqualFiles     = 0;
+            _BytesProcessed = 0;
             PGB_Files.Value = 0;
 
             BTN_SelectSrcDir.Enabled    = false;
@@ -40,8 +44,8 @@ namespace MP3TagRename
             _bAbort = false;
             PGB_Files.Value = 0;
 
-            BTN_SelectSrcDir.Enabled = true;
-            BTN_SelectDstDir.Enabled = true;
+            BTN_SelectSrcDir.Enabled    = true;
+            BTN_SelectDstDir.Enabled    = true;
             BTN_StartProcessing.Enabled = true;
         }
 
@@ -91,9 +95,9 @@ namespace MP3TagRename
             }
             catch (System.Exception ex)
             {
-                AsyncUI.Call(LBL_Info, delegate
+                AsyncUI.Call(RTB_Errors, delegate
                 {
-                    LBL_Info.Text = ex.Message;
+                    RTB_Errors.Text = string.Format("ERROR: {0}", ex.Message);
                 });
             }
             finally
@@ -136,8 +140,8 @@ namespace MP3TagRename
                 if (mp3.Tag.Title != null)
                     sTitle = mp3.Tag.Title;
 
-                sTitle = LegalizePath(sTitle);
-                sAlbum = LegalizePath(sAlbum);
+                sTitle  = LegalizePath(sTitle);
+                sAlbum  = LegalizePath(sAlbum);
                 sArtist = LegalizePath(sArtist);
 
                 StringBuilder sbTrackName = new StringBuilder();
@@ -193,19 +197,24 @@ namespace MP3TagRename
                         sDst = string.Format("{0}({1}).mp3", Path.Combine(sDstPath, sTrackName), cnt);
                     }
                     else
+                    {
                         bIsSameFile = true;
-
+                        _EqualFiles++;
+                    }
                 }
+
 
                 if (!bIsSameFile)
                     System.IO.File.Copy(fi.FullName, sDst);
 
+                _BytesProcessed += fi.Length;
+
             }
             catch (System.Exception ex)
             {
-                AsyncUI.Call(LBL_Info, delegate
+                AsyncUI.Call(RTB_Errors, delegate
                 {
-                    LBL_Info.Text = ex.Message;
+                    RTB_Errors.Text = string.Format("ERROR: {0}", ex.Message);
                 });
             }
         }
@@ -213,7 +222,7 @@ namespace MP3TagRename
 
         void UpdateProgress(int i, int NumFiles, string SrcFull, string DstFull)
         {
-            AsyncUI.Call(LBL_Info, delegate
+            AsyncUI.Call(RTB_Log, delegate
             {
 
                 LBL_NumFiles.Text = string.Format("{0} / {1}", i + 1, NumFiles);
@@ -223,7 +232,10 @@ namespace MP3TagRename
 
                 string sMsg = string.Format("Processing: {0,60}\r\n", SrcFull);
                 sMsg += string.Format("Copy To: {0}", DstFull);
-                LBL_Info.Text = sMsg;
+                RTB_Log.AppendText(sMsg);
+
+                string sStats  = string.Format("Equal Files: {0,3} [not copied] / Processed {1,6} MBytes", _EqualFiles, _BytesProcessed / 1048576);
+                LBL_Stats.Text = sStats; 
 
             });
         }

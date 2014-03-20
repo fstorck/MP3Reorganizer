@@ -36,9 +36,11 @@
             this.LBL_SrcDir = new System.Windows.Forms.Label();
             this.LBL_DstDir = new System.Windows.Forms.Label();
             this.BTN_Abort = new System.Windows.Forms.Button();
-            this.LBL_Info = new System.Windows.Forms.Label();
             this.PGB_Files = new System.Windows.Forms.ProgressBar();
             this.LBL_NumFiles = new System.Windows.Forms.Label();
+            this.RTB_Log = new System.Windows.Forms.RichTextBox();
+            this.LBL_Stats = new System.Windows.Forms.Label();
+            this.RTB_Errors = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // BTN_SelectSrcDir
@@ -101,15 +103,6 @@
             this.BTN_Abort.UseVisualStyleBackColor = true;
             this.BTN_Abort.Click += new System.EventHandler(this.BTN_Abort_Click);
             // 
-            // LBL_Info
-            // 
-            this.LBL_Info.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.LBL_Info.Location = new System.Drawing.Point(12, 167);
-            this.LBL_Info.Name = "LBL_Info";
-            this.LBL_Info.Size = new System.Drawing.Size(535, 86);
-            this.LBL_Info.TabIndex = 3;
-            this.LBL_Info.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // PGB_Files
             // 
             this.PGB_Files.Location = new System.Drawing.Point(145, 76);
@@ -119,29 +112,59 @@
             // 
             // LBL_NumFiles
             // 
-            this.LBL_NumFiles.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.LBL_NumFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.LBL_NumFiles.Location = new System.Drawing.Point(9, 76);
             this.LBL_NumFiles.Name = "LBL_NumFiles";
             this.LBL_NumFiles.Size = new System.Drawing.Size(127, 23);
             this.LBL_NumFiles.TabIndex = 5;
             this.LBL_NumFiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Form1
+            // RTB_Log
+            // 
+            this.RTB_Log.Location = new System.Drawing.Point(12, 262);
+            this.RTB_Log.MaxLength = 128000;
+            this.RTB_Log.Name = "RTB_Log";
+            this.RTB_Log.Size = new System.Drawing.Size(535, 133);
+            this.RTB_Log.TabIndex = 6;
+            this.RTB_Log.Text = "";
+            // 
+            // LBL_Stats
+            // 
+            this.LBL_Stats.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.LBL_Stats.Location = new System.Drawing.Point(12, 161);
+            this.LBL_Stats.Name = "LBL_Stats";
+            this.LBL_Stats.Size = new System.Drawing.Size(535, 28);
+            this.LBL_Stats.TabIndex = 3;
+            this.LBL_Stats.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // RTB_Errors
+            // 
+            this.RTB_Errors.BackColor = System.Drawing.Color.LightYellow;
+            this.RTB_Errors.Location = new System.Drawing.Point(12, 192);
+            this.RTB_Errors.MaxLength = 128000;
+            this.RTB_Errors.Name = "RTB_Errors";
+            this.RTB_Errors.Size = new System.Drawing.Size(535, 64);
+            this.RTB_Errors.TabIndex = 7;
+            this.RTB_Errors.Text = "";
+            // 
+            // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(559, 262);
+            this.ClientSize = new System.Drawing.Size(559, 404);
+            this.Controls.Add(this.RTB_Errors);
+            this.Controls.Add(this.RTB_Log);
             this.Controls.Add(this.LBL_NumFiles);
             this.Controls.Add(this.PGB_Files);
-            this.Controls.Add(this.LBL_Info);
+            this.Controls.Add(this.LBL_Stats);
             this.Controls.Add(this.LBL_DstDir);
             this.Controls.Add(this.LBL_SrcDir);
             this.Controls.Add(this.BTN_Abort);
             this.Controls.Add(this.BTN_StartProcessing);
             this.Controls.Add(this.BTN_SelectDstDir);
             this.Controls.Add(this.BTN_SelectSrcDir);
-            this.Name = "Form1";
+            this.Name = "MainFrm";
             this.Text = "MP3 Reorganizer";
             this.ResumeLayout(false);
 
@@ -157,9 +180,11 @@
         private System.Windows.Forms.Label LBL_SrcDir;
         private System.Windows.Forms.Label LBL_DstDir;
         private System.Windows.Forms.Button BTN_Abort;
-        private System.Windows.Forms.Label LBL_Info;
         private System.Windows.Forms.ProgressBar PGB_Files;
         private System.Windows.Forms.Label LBL_NumFiles;
+        private System.Windows.Forms.RichTextBox RTB_Log;
+        private System.Windows.Forms.Label LBL_Stats;
+        private System.Windows.Forms.RichTextBox RTB_Errors;
     }
 }
 
