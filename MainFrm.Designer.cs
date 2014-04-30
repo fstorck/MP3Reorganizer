@@ -155,6 +155,8 @@
             // 
             // RTB_Log
             // 
+            this.RTB_Log.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.RTB_Log.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_Log.Location = new System.Drawing.Point(11, 247);
             this.RTB_Log.MaxLength = 128000;
@@ -165,18 +167,23 @@
             // 
             // PGD_TagInfo
             // 
+            this.PGD_TagInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.PGD_TagInfo.Font = new System.Drawing.Font("Latha", 8.25F);
             this.PGD_TagInfo.Location = new System.Drawing.Point(553, 12);
             this.PGD_TagInfo.Name = "PGD_TagInfo";
-            this.PGD_TagInfo.Size = new System.Drawing.Size(400, 278);
+            this.PGD_TagInfo.Size = new System.Drawing.Size(400, 228);
             this.PGD_TagInfo.TabIndex = 8;
             // 
             // LBX_Files
             // 
+            this.LBX_Files.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.LBX_Files.FormattingEnabled = true;
-            this.LBX_Files.Location = new System.Drawing.Point(553, 296);
+            this.LBX_Files.Location = new System.Drawing.Point(553, 244);
             this.LBX_Files.Name = "LBX_Files";
-            this.LBX_Files.Size = new System.Drawing.Size(400, 134);
+            this.LBX_Files.Size = new System.Drawing.Size(400, 186);
             this.LBX_Files.TabIndex = 9;
             this.LBX_Files.SelectedValueChanged += new System.EventHandler(this.LBX_Files_SelectedValueChanged);
             // 

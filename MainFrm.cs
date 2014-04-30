@@ -322,7 +322,7 @@ namespace MP3TagRename
                 }
                 catch (Exception ex)
                 {
-
+                    RTB_Log.AppendText(ex.Message);
                 }
 
             }
