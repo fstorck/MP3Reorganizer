@@ -42,6 +42,8 @@
             this.LBL_Stats = new System.Windows.Forms.Label();
             this.RTB_Errors = new System.Windows.Forms.RichTextBox();
             this.RTB_Log = new System.Windows.Forms.RichTextBox();
+            this.PGD_TagInfo = new System.Windows.Forms.PropertyGrid();
+            this.LBX_Files = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // BTN_SelectSrcDir
@@ -161,12 +163,31 @@
             this.RTB_Log.TabIndex = 7;
             this.RTB_Log.Text = "";
             // 
+            // PGD_TagInfo
+            // 
+            this.PGD_TagInfo.Font = new System.Drawing.Font("Latha", 8.25F);
+            this.PGD_TagInfo.Location = new System.Drawing.Point(553, 12);
+            this.PGD_TagInfo.Name = "PGD_TagInfo";
+            this.PGD_TagInfo.Size = new System.Drawing.Size(400, 278);
+            this.PGD_TagInfo.TabIndex = 8;
+            // 
+            // LBX_Files
+            // 
+            this.LBX_Files.FormattingEnabled = true;
+            this.LBX_Files.Location = new System.Drawing.Point(553, 296);
+            this.LBX_Files.Name = "LBX_Files";
+            this.LBX_Files.Size = new System.Drawing.Size(400, 134);
+            this.LBX_Files.TabIndex = 9;
+            this.LBX_Files.SelectedValueChanged += new System.EventHandler(this.LBX_Files_SelectedValueChanged);
+            // 
             // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(559, 438);
+            this.ClientSize = new System.Drawing.Size(965, 438);
+            this.Controls.Add(this.LBX_Files);
+            this.Controls.Add(this.PGD_TagInfo);
             this.Controls.Add(this.RTB_Log);
             this.Controls.Add(this.BTN_ScanFiles);
             this.Controls.Add(this.LBL_NumFiles);
@@ -200,6 +221,8 @@
         private System.Windows.Forms.Label LBL_Stats;
         private System.Windows.Forms.RichTextBox RTB_Errors;
         private System.Windows.Forms.RichTextBox RTB_Log;
+        private System.Windows.Forms.PropertyGrid PGD_TagInfo;
+        private System.Windows.Forms.ListBox LBX_Files;
     }
 }
 

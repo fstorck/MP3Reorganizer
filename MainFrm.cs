@@ -281,7 +281,8 @@ namespace MP3TagRename
                 DirectoryInfo diSrc = new DirectoryInfo(FBD_SrcDir.SelectedPath);
                 FileInfo[] Files = diSrc.GetFiles("*.*", SearchOption.AllDirectories);
 
-
+                LBX_Files.DataSource = Files;
+                /*
                 int NumFiles = Files.Length;
 
                 for (int i = 0; i < NumFiles; i++)
@@ -304,6 +305,24 @@ namespace MP3TagRename
                     {
 
                     }
+                }
+                */
+            }
+        }
+
+        private void LBX_Files_SelectedValueChanged(object sender, EventArgs e)
+        {
+            FileInfo fi = (FileInfo)LBX_Files.SelectedItem;
+            if (fi != null)
+            {
+                try
+                {
+                    TagLib.File file = TagLib.File.Create(fi.FullName);
+                    PGD_TagInfo.SelectedObject = file.Tag;
+                }
+                catch (Exception ex)
+                {
+
                 }
 
             }
