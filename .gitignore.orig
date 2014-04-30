@@ -1,0 +1,9 @@
+<<<<<<< HEAD
+obj/*
+bin/*
+*.suo
+=======
+*.suo
+bin
+obj
+>>>>>>> master
