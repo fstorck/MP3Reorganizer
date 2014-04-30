@@ -257,6 +257,42 @@ namespace MP3TagRename
             return
                 Src;
         }
+
+        private void BTN_ScanFiles_Click(object sender, EventArgs e)
+        {
+            if (FBD_SrcDir.ShowDialog() == DialogResult.OK)
+            {
+                LBL_SrcDir.Text = FBD_SrcDir.SelectedPath;
+                DirectoryInfo diSrc = new DirectoryInfo(FBD_SrcDir.SelectedPath);
+                FileInfo[] Files = diSrc.GetFiles("*.*", SearchOption.AllDirectories);
+
+
+                int NumFiles = Files.Length;
+
+                for (int i = 0; i < NumFiles; i++)
+                {
+                    FileInfo fi = Files[i];
+
+                    if (_bAbort)
+                        return;
+
+                    try
+                    {
+                    
+                        using (TagLib.File file = TagLib.File.Create(fi.FullName))
+                        {
+
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
+
+            }
+        }
     }
     /// <summary>
     /// Implements a simplified pattern for handling 

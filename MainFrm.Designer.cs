@@ -39,6 +39,7 @@
             this.LBL_Info = new System.Windows.Forms.Label();
             this.PGB_Files = new System.Windows.Forms.ProgressBar();
             this.LBL_NumFiles = new System.Windows.Forms.Label();
+            this.BTN_ScanFiles = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BTN_SelectSrcDir
@@ -64,7 +65,7 @@
             // BTN_StartProcessing
             // 
             this.BTN_StartProcessing.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTN_StartProcessing.Location = new System.Drawing.Point(12, 105);
+            this.BTN_StartProcessing.Location = new System.Drawing.Point(12, 157);
             this.BTN_StartProcessing.Name = "BTN_StartProcessing";
             this.BTN_StartProcessing.Size = new System.Drawing.Size(398, 48);
             this.BTN_StartProcessing.TabIndex = 2;
@@ -93,7 +94,7 @@
             // BTN_Abort
             // 
             this.BTN_Abort.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTN_Abort.Location = new System.Drawing.Point(416, 105);
+            this.BTN_Abort.Location = new System.Drawing.Point(416, 157);
             this.BTN_Abort.Name = "BTN_Abort";
             this.BTN_Abort.Size = new System.Drawing.Size(131, 48);
             this.BTN_Abort.TabIndex = 2;
@@ -104,7 +105,7 @@
             // LBL_Info
             // 
             this.LBL_Info.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.LBL_Info.Location = new System.Drawing.Point(12, 167);
+            this.LBL_Info.Location = new System.Drawing.Point(12, 219);
             this.LBL_Info.Name = "LBL_Info";
             this.LBL_Info.Size = new System.Drawing.Size(535, 86);
             this.LBL_Info.TabIndex = 3;
@@ -126,12 +127,24 @@
             this.LBL_NumFiles.TabIndex = 5;
             this.LBL_NumFiles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Form1
+            // BTN_ScanFiles
+            // 
+            this.BTN_ScanFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTN_ScanFiles.Location = new System.Drawing.Point(12, 105);
+            this.BTN_ScanFiles.Name = "BTN_ScanFiles";
+            this.BTN_ScanFiles.Size = new System.Drawing.Size(535, 46);
+            this.BTN_ScanFiles.TabIndex = 6;
+            this.BTN_ScanFiles.Text = "Scan Files";
+            this.BTN_ScanFiles.UseVisualStyleBackColor = true;
+            this.BTN_ScanFiles.Click += new System.EventHandler(this.BTN_ScanFiles_Click);
+            // 
+            // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(559, 262);
+            this.ClientSize = new System.Drawing.Size(559, 313);
+            this.Controls.Add(this.BTN_ScanFiles);
             this.Controls.Add(this.LBL_NumFiles);
             this.Controls.Add(this.PGB_Files);
             this.Controls.Add(this.LBL_Info);
@@ -141,7 +154,7 @@
             this.Controls.Add(this.BTN_StartProcessing);
             this.Controls.Add(this.BTN_SelectDstDir);
             this.Controls.Add(this.BTN_SelectSrcDir);
-            this.Name = "Form1";
+            this.Name = "MainFrm";
             this.Text = "MP3 Reorganizer";
             this.ResumeLayout(false);
 
@@ -160,6 +173,7 @@
         private System.Windows.Forms.Label LBL_Info;
         private System.Windows.Forms.ProgressBar PGB_Files;
         private System.Windows.Forms.Label LBL_NumFiles;
+        private System.Windows.Forms.Button BTN_ScanFiles;
     }
 }
 
